@@ -18,7 +18,7 @@ Jeronimo. Please, see LICENSE file for legal information.
 - simplex.py: simplex linear programming solver with support to rational computation.
 - simplex_test.py: simplex solver test module.
 
-# Running Instructions (RUN)
+# Running Instructions
 
 Here is an example on how to use the code snipets from run.py to
 execute the standard primal program with parameters l_0=4, k=29,
