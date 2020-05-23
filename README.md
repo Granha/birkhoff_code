@@ -1,4 +1,3 @@
-# birkhoff_code
 
 # General (GEN)
 
