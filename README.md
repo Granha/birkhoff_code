@@ -1,13 +1,13 @@
 # birkhoff_code
 
-== General (GEN)
+# General (GEN)
 
 This repository contains the linear programming package used to obtain
 the results of the paper "Tighter Bounds on the Independence Number of
 the Birkhoff Graph" by Leonardo Nagami Coregliano and Fernando Granha
 Jeronimo. Please, see LICENSE file for legal information.
 
-== File Structure (FST)
+# File Structure (FST)
 
 - CompactSet.py: 
 - LICENSE: legal information 
@@ -19,12 +19,13 @@ Jeronimo. Please, see LICENSE file for legal information.
 - simplex.py: simplex linear programming solver with support to rational computation.
 - simplex_test.py: simplex solver test module.
 
-== Running Instructions (RUN)
+# Running Instructions (RUN)
 
 Here is an example on how to use the code snipets from run.py to
 execute the standard primal program with parameters l_0=4, k=29,
 c=1.72.
 
+```python
 >>> from linearsolver import *
 >>> parameters = [( 4, 29, fractions.Fraction(172,100))]
 >>> def runPrimal():
@@ -32,7 +33,7 @@ c=1.72.
 ...        print('\n\nStandard\nlmax = %d, k0 = %d, c = %.21g' % (lmax, k0, c))
 ...        sol = solveBirkhoffPrimalAndSave(lmax=lmax, k0=k0, c=c, cutpoint=0, callback=simplex.generateModPrinter(), pivotchoice=simplex.greedyStrategy, mset=range(2,2*(lmax+k0),2), fileprefix='even_')
 >> runPrimal()
-
+```
 
 The run.py file has three sections, each with its own functions:
   - Stardard: original primal/dual without speed up heuristics.
