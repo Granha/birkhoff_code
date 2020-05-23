@@ -1,12 +1,12 @@
 
-# General (GEN)
+# General 
 
 This repository contains the linear programming package used to obtain
 the results of the paper "Tighter Bounds on the Independence Number of
 the Birkhoff Graph" by Leonardo Nagami Coregliano and Fernando Granha
 Jeronimo. Please, see LICENSE file for legal information.
 
-# File Structure (FST)
+# File Structure 
 
 - CompactSet.py: 
 - LICENSE: legal information 
@@ -14,7 +14,7 @@ Jeronimo. Please, see LICENSE file for legal information.
 - linearsolver_test.py: linear solver test module.
 - Partition.py: Partition class and associated functionalities.
 - partition_test.py: partition test module.
-- run.py: file containing example of how to invoke the linear solver (see more details in Section RUN).
+- run.py: file containing example of how to invoke the linear solver (see more details in the next section).
 - simplex.py: simplex linear programming solver with support to rational computation.
 - simplex_test.py: simplex solver test module.
 
