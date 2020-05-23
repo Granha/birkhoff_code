@@ -8,7 +8,7 @@ Jeronimo. Please, see LICENSE file for legal information.
 
 # File Structure 
 
-- CompactSet.py: 
+- CompactSet.py: meta-data compression module.
 - LICENSE: legal information 
 - linearsolver.py: interface module containing linear program generators and solver wrappers.
 - linearsolver_test.py: linear solver test module.
