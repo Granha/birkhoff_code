@@ -57,3 +57,16 @@ Warning: the file run.py is not intended to be executed directly but to have sni
 
 More specific details about the parameters of the module functions can
 be found using the usual python's help fuction.
+
+# Solution files
+
+The data folder contains solution files outputted by the program. The solution files are subclassified into the folders Standard, FragHeuristic and AllHeuristics corresponding to the three types of examples in run.py.
+
+To inspect a particular solution file, you can use the functions load, loadall, printsol, printrawsol, printallsol, printallrawsol from linearsolver.py (for more details on these functions, use python's help function). The variables of the problem are described in the article.
+
+Example:
+```python
+>>> from linearsolver import *
+>>> sol = load('data/Standard/even_dualsol_14_79_1.87_mset.pkl')
+>>> printsol(sol)
+```
