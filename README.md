@@ -71,3 +71,7 @@ Example:
 >>> sol = load('data/Standard/even_dualsol_14_79_1.87_mset.pkl')
 >>> printsol(sol)
 ```
+
+# Other functionalities
+
+The program also has other functionalities whose documentation can be seen using Python's help function.
