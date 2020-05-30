@@ -31,6 +31,7 @@ c=1.72.
 ...    for (lmax, k0, c) in parameters:
 ...        print('\n\nStandard\nlmax = %d, k0 = %d, c = %.21g' % (lmax, k0, c))
 ...        sol = solveBirkhoffPrimalAndSave(lmax=lmax, k0=k0, c=c, cutpoint=0, callback=simplex.generateModPrinter(), pivotchoice=simplex.greedyStrategy, mset=range(2,2*(lmax+k0),2), fileprefix='even_')
+...
 >> runPrimal()
 ```
 
