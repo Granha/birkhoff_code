@@ -396,7 +396,7 @@ def createBirkhoffPrimal(lmax, k0 = 15, c = fractions.Fraction(17,10), *, lset=N
     return (obj, A, b, Aineq, vartype, 0, False)
 
 def solveBirkhoffPrimal(lmax, k0 = 15, c = fractions.Fraction(17,10), *, varclass=fractions.Fraction,
-                        pivotchoice=simplex.basicStrategy, cutpoint=None, callback=simplex.dummy,
+                        pivotchoice=simplex.greedyStrategy, cutpoint=None, callback=simplex.dummy,
                         lset=None, mset=None, kostkaRounder=dummy, negativeBelly=False, negativeLeg=False,
                         precomputedPartitionList=None):
     """
@@ -707,7 +707,7 @@ def createBirkhoffDual(lmax, k0 = 15, c = fractions.Fraction(17,10), *, lset=Non
 
 
 def solveBirkhoffDual(lmax, k0 = 15, c = fractions.Fraction(17,10), *, varclass=fractions.Fraction,
-                      pivotchoice=simplex.basicStrategy, cutpoint=None, callback=simplex.dummy,
+                      pivotchoice=simplex.greedyStrategy, cutpoint=None, callback=simplex.dummy,
                       lset=None, mset=None, kostkaRounder=dummy, dualKostkaRounder=dualDummy,
                       negativeBelly=False, negativeLeg=False, restrictionList=None,
                       jointLargeLeg=False, precomputedPartitionList=None,
@@ -740,7 +740,7 @@ def solveBirkhoffDual(lmax, k0 = 15, c = fractions.Fraction(17,10), *, varclass=
                                      pivotchoice=pivotchoice, cutpoint=cutpoint, callback=callback)
 
 def solveBirkhoffBoth(lmax, k0 = 15, c = fractions.Fraction(17,10), *, varclass=fractions.Fraction,
-                      pivotchoice=simplex.basicStrategy, primalcutpoint=None, dualcutpoint=None,
+                      pivotchoice=simplex.greedyStrategy, primalcutpoint=None, dualcutpoint=None,
                       callback=simplex.dummy,
                       lset=None, mset=None, kostkaRounder=dummy, dualKostkaRounder=dualDummy,
                       negativeBelly=False, negativeLeg=False, restrictionList=None,
@@ -775,7 +775,7 @@ def solveBirkhoffBoth(lmax, k0 = 15, c = fractions.Fraction(17,10), *, varclass=
 
 def solveBirkhoffPrimalAndSave(problemfilename=None, solutionfilename=None,
                                lmax=2, k0 = 15, c = fractions.Fraction(17,10), *, varclass=fractions.Fraction,
-                               pivotchoice=simplex.basicStrategy, cutpoint=None, callback=simplex.dummy,
+                               pivotchoice=simplex.greedyStrategy, cutpoint=None, callback=simplex.dummy,
                                lset=None, mset=None, kostkaRounder=dummy, fileprefix='',
                                negativeBelly=False, negativeLeg=False,
                                precomputedPartitionList=None):
@@ -858,7 +858,7 @@ def solveBirkhoffPrimalAndSave(problemfilename=None, solutionfilename=None,
 
 def solveBirkhoffDualAndSave(problemfilename=None, solutionfilename=None,
                              lmax=2, k0 = 15, c = fractions.Fraction(17,10), *, varclass=fractions.Fraction,
-                             pivotchoice=simplex.basicStrategy, cutpoint=None, callback=simplex.dummy,
+                             pivotchoice=simplex.greedyStrategy, cutpoint=None, callback=simplex.dummy,
                              lset=None, mset=None, fileprefix='',
                              kostkaRounder=dummy, dualKostkaRounder=dualDummy,
                              negativeBelly=False, negativeLeg=False, restrictionList=None,
@@ -952,7 +952,7 @@ def solveBirkhoffDualAndSave(problemfilename=None, solutionfilename=None,
 def solveBirkhoffBothAndSave(primalproblemfilename=None, primalsolutionfilename=None,
                              dualproblemfilename=None, dualsolutionfilename=None,
                              lmax=2, k0 = 15, c = fractions.Fraction(17,10), *, varclass=fractions.Fraction,
-                             pivotchoice=simplex.basicStrategy, primalcutpoint=None, dualcutpoint=None,
+                             pivotchoice=simplex.greedyStrategy, primalcutpoint=None, dualcutpoint=None,
                              callback=simplex.dummy, lset=None, mset=None,
                              kostkaRounder=dummy, dualKostkaRounder=dualDummy,
                              fileprefix='', negativeBelly=False, negativeLeg=False, restrictionList=None,
@@ -997,7 +997,7 @@ def solveBirkhoffBothAndSave(primalproblemfilename=None, primalsolutionfilename=
 
 
 def fragmentedPhaseFragBirkhoffDual(lmax, k0, c, *, varclass=fractions.Fraction,
-                                    pivotchoice=simplex.basicStrategy, cutpoint=None, callback=simplex.dummy,
+                                    pivotchoice=simplex.greedyStrategy, cutpoint=None, callback=simplex.dummy,
                                     lset=None, mset=None, kostkaRounder=dummy, dualKostkaRounder=dualDummy,
                                     negativeBelly=False, negativeLeg=False,
                                     restrictionList=None, jointLargeLeg=False,
@@ -1188,7 +1188,7 @@ def defragmentedPhaseFragBirkhoffDual(sold, *, save=True, defragsolutionfilename
     
 
 def solveFragBirkhoffDual(lmax, k0, c, *, varclass=fractions.Fraction,
-                          pivotchoice=simplex.basicStrategy, cutpoint=None, callback=simplex.dummy,
+                          pivotchoice=simplex.greedyStrategy, cutpoint=None, callback=simplex.dummy,
                           lset=None, mset=None, kostkaRounder=dummy, dualKostkaRounder=dualDummy,
                           negativeBelly=False, negativeLeg=False, restrictionList=None, jointLargeLeg=False,
                           save=True, fragproblemfilename=None, fragsolutionfilename=None,
@@ -2710,9 +2710,9 @@ def _old_modernizesolinsp(sol):
             newinsp.append(newentry)
         sol['insp'] = tuple(newinsp)
 
-##################################################################
-#  Compact sets (deprecated, we know use the module CompactSet)  #
-##################################################################
+#################################################################
+#  Compact sets (deprecated, we now use the module CompactSet)  #
+#################################################################
 
 def _old_compactify(s):
     """
