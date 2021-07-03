@@ -608,7 +608,7 @@ def createBirkhoffDual(lmax, k0 = 15, c = fractions.Fraction(17,10), *, lset=Non
     to the returned value of Wparametrizer(l). If Wparametrizer(l) == None, then w[l] is a free variable;
     else w[l] is made to satisfy
     w[l] = Wparametrizer(l) * W + Wc,
-    where W and Wc are a new variables (the same for all l).
+    where W and Wc are new variables (the same for all l).
 
     WARNING: it is not a priori clear what is the theoretical meaning of applying (dualization of) primal 
     rounding or dual rounding when the parameter jointLargeLeg is True.
@@ -1257,7 +1257,7 @@ def solveFragBirkhoffDual(lmax, k0, c, *, varclass=fractions.Fraction,
     to the returned value of Wparametrizer(l). If Wparametrizer(l) == None, then w[l] is a free variable;
     else w[l] is made to satisfy
     w[l] = Wparametrizer(l) * W + Wc,
-    where W and Wc are a new variables (the same for all l).
+    where W and Wc are new variables (the same for all l).
     - if runFragmentedPhaseOnly is True, then halts after finishing the fragmented phase instead; the returned
     defragmented solution dictionary is empty (see also resumeFragBirkhoffDual).
 
