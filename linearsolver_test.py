@@ -77,25 +77,28 @@ class TestLinearsolver(unittest.TestCase):
         self.assertTrue(vp2 <= v)
 
     def test_fragdual(self):
-        (feasible, insp, x, v) = solveFragBirkhoffDual(2, 15, fractions.Fraction(17,10),
+        (problem, sold, defragsold) = solveFragBirkhoffDual(2, 15, fractions.Fraction(17,10),
                                                        callback=simplex.generateModPrinter(10), save=False)
+
+        feasible = defragsold['feasible']
+        (x,v) = defragsold['solution']
 
         self.assertEqual(v, fractions.Fraction(-693546131200007083960247889737617216097620367281230353754881253059537327, 899499953539818762045703020105883975680000000000000000000000000000000000))
 
         self.assertEqual(feasible, True)
-        self.assertEqual(insp[-1], [])
 
     def test_primal_vs_fragdual(self):
         (xp, vp) = solveBirkhoffPrimal(4, 15, fractions.Fraction(16,10),
                                        callback=simplex.generateModPrinter(10),
                                        lset=set([0,4]))
-        (feasible, insp, xd, vd) = solveFragBirkhoffDual(4, 15, fractions.Fraction(16,10),
+        (problem, sold, defragsold) = solveFragBirkhoffDual(4, 15, fractions.Fraction(16,10),
                                                          callback=simplex.generateModPrinter(10),
                                                          lset=set([0,4]), save=False)
+        feasible = defragsold['feasible']
+        (xd,vd) = defragsold['solution']
         self.assertEqual(vp, vd)
         self.assertTrue(vp > 0)
         self.assertEqual(feasible, True)
-        self.assertEqual(insp[-1], [])
 
 if __name__ == '__main__':
     unittest.main()
